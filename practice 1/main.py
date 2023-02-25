@@ -12,7 +12,7 @@ def plot_data(x, y, x_test, y_pred, gap=0.1):
 
     plt.figure(figsize=(8, 8))
     plt.xlim(*x_lim)
-    plt.ylim(*x_lim)
+
 
     xx, yy = np.meshgrid(np.linspace(x_lim[0], x_lim[1], 200), 
                          np.linspace(x_lim[0], x_lim[1], 200))
