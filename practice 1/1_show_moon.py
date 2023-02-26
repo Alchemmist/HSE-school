@@ -1,3 +1,9 @@
+"""
+Пока нет ни какого ML просто генерим
+датасет с двумя лунами и показываем их
+"""
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.datasets import make_moons
@@ -13,6 +19,8 @@ def plot_data(x, y, gap=0.1):
     plt.ylim(*x_lim)
         
     plt.scatter(x[y==0, 0], x[y==0, 1], label='класс 1')
+    #       x[y==0]   -------->     ([0.23, 1.23])
+    #       x[y==0, 0]   -------->     0.23
     plt.scatter(x[y==1, 0], x[y==1, 1], label='класс 2')
 
     plt.grid()

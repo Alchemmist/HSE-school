@@ -1,8 +1,15 @@
+"""
+Добавляем модель, её предсказание это закрашенные области.
+То есть модель считает что в красной области будут крассные точки
+а в зелёной зелёные. Вот и предсказание
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.datasets import make_moons
 from sklearn.neighbors import KNeighborsClassifier
 from matplotlib.colors import ListedColormap
+from sklearn.cluster import KMeans
 
 
 def plot_data(x, y, x_test, y_pred, model, gap=0.1): 
