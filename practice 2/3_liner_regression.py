@@ -7,13 +7,8 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.linear_model import LogisticRegression, LinearRegression
-from sklearn.preprocessing import PolynomialFeatures, StandardScaler
-from sklearn.neighbors import KNeighborsRegressor
-from matplotlib.colors import Normalize
 import matplotlib as mpl
-from sklearn.pipeline import Pipeline
-from sklearn.datasets import make_blobs, make_moons
+from sklearn.datasets import make_moons
 
 
 def make_liner_regression(num_points, noise=0.1):

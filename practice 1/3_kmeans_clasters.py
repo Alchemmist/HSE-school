@@ -7,15 +7,14 @@
 
 Тоже самое можно было сделать и с лунами, но там ПРАВИЛЬНО 
 поделить уже не получится, потому что кластеры определяются 
-прфмыми
+прямыми
 """
 
 
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 import numpy as np
-from sklearn.datasets import make_blobs, make_moons
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 
 
@@ -26,13 +25,12 @@ def plot_clusters(x, model, gap=0.1, alpha=0.8):
     plt.figure(figsize=(6, 6))
     plt.xlim(*x_lim)
 
-
     xx, yy = np.meshgrid(np.linspace(x_lim[0], x_lim[1], 200), 
                          np.linspace(x_lim[0], x_lim[1], 200))
     x_mesh = np.stack([xx.reshape(-1), yy.reshape(-1)], axis=1)
     y_mesh = model.predict(x_mesh)
     y_unique = np.unique(y_mesh)
-    colors = [np.random.rand(3) for i in y_unique]
+    colors = [np.random.rand(3) for _ in y_unique]
 
     cm = ListedColormap([alpha * np.array([1., 1., 1]) + (1 - alpha) * c for c in colors])
     plt.pcolormesh(xx, yy, y_mesh.reshape(xx.shape), cmap=cm, shading='gouraud')     # фон

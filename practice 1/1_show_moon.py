@@ -18,10 +18,15 @@ def plot_data(x, y, gap=0.1):
     plt.xlim(*x_lim)
     plt.ylim(*x_lim)
         
-    plt.scatter(x[y==0, 0], x[y==0, 1], label='класс 1')
-    #       x[y==0]   -------->     ([0.23, 1.23])
+    plt.scatter(x[y==0, 0], 
+                x[y==0, 1], 
+                label='класс 1')
+    #       x[y==0]      -------->     ([0.23, 1.23])
     #       x[y==0, 0]   -------->     0.23
-    plt.scatter(x[y==1, 0], x[y==1, 1], label='класс 2')
+
+    plt.scatter(x[y==1, 0], 
+                x[y==1, 1], 
+                label='класс 2')
 
     plt.grid()
     plt.legend()
@@ -29,5 +34,10 @@ def plot_data(x, y, gap=0.1):
 
 
 x, y = make_moons(150, noise=0.1)
+# 150  -->  количество точек
+# noise  -->   шум(насколько точки размазны)
+# x -> матрица координат точек
+# y -> классы точек (ключи)
+
 plot_data(x, y)
 plt.show()

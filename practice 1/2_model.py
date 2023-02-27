@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import make_moons
 from sklearn.neighbors import KNeighborsClassifier
 from matplotlib.colors import ListedColormap
-from sklearn.cluster import KMeans
 
 
 def plot_data(x, y, x_test, y_pred, model, gap=0.1): 
@@ -31,12 +30,26 @@ def plot_data(x, y, x_test, y_pred, model, gap=0.1):
         [0.7, 0.9, 0.7]
     ])
     plt.pcolormesh(xx, yy, y_mesh.reshape(xx.shape), cmap=cm)
-        
 
-    plt.scatter(x[y==0, 0], x[y==0, 1], label='класс 1', color=(0.8, 0., 0.))
-    plt.scatter(x[y==1, 0], x[y==1, 1], label='класс 2', color=(0., 0.8, 0.))
-    plt.scatter(x_test[y_pred==0, 0], x_test[y_pred==0, 1], label="класс 1 (предсказание)", edgecolor="black", color=(0.8, 0., 0.))
-    plt.scatter(x_test[y_pred==1, 0], x_test[y_pred==1, 1], label="класс 2 (предсказание)", edgecolor="black", color=(0., 0.8, 0.))
+    plt.scatter(x[y==0, 0], 
+                x[y==0, 1], 
+                label='класс 1', 
+                color=(0.8, 0., 0.))
+    plt.scatter(x[y==1, 0], 
+                x[y==1, 1], 
+                label='класс 2', 
+                color=(0., 0.8, 0.))
+
+    plt.scatter(x_test[y_pred==0, 0], 
+                x_test[y_pred==0, 1], 
+                label="класс 1 (предсказание)", 
+                edgecolor="black", 
+                color=(0.8, 0., 0.))
+    plt.scatter(x_test[y_pred==1, 0], 
+                x_test[y_pred==1, 1], 
+                label="класс 2 (предсказание)", 
+                edgecolor="black", 
+                color=(0., 0.8, 0.))
 
     plt.grid()
     plt.legend()
@@ -44,8 +57,8 @@ def plot_data(x, y, x_test, y_pred, model, gap=0.1):
 
 
 x, y = make_moons(150, noise=0.1)
-model = KNeighborsClassifier(5)
-model.fit(x, y)
+model = KNeighborsClassifier(5)  # создаём модель
+model.fit(x, y)  # обучаем модель
 
 x_new = np.random.randn(10, 2)
 y_pred = model.predict(x_new)
